@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TesteViceriSeidor.Api.Models
 {
@@ -10,7 +11,7 @@ namespace TesteViceriSeidor.Api.Models
     public class Heroi
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [MaxLength(120)]
         public string Nome { get; set; }
@@ -37,7 +38,7 @@ namespace TesteViceriSeidor.Api.Models
 
         public Heroi(string Nome, string NomeHeroi, IEnumerable<Superpoder> Superpoderes)
         {
-            this.Id = 0;
+            this.Id = null;
             this.Nome = Nome;
             this.NomeHeroi = NomeHeroi;
             this.Superpoderes = Superpoderes;

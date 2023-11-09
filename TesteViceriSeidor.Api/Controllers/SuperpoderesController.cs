@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace TesteViceriSeidor.Api.Controllers
             _context = context;
         }
 
-        // GET: api/superpoderes
+        // GET: /api/superpoderes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Superpoder>>> Get()
         {
@@ -33,7 +33,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return await _context.Superpoderes.ToListAsync();
         }
 
-        // GET: api/superpoderes/{id}
+        // GET: /api/superpoderes/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Superpoder>> Get(int id)
         {
@@ -52,7 +52,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return superpoder;
         }
 
-        // POST: api/superpoderes
+        // POST: /api/superpoderes
         [HttpPost]
         public async Task<ActionResult<Superpoder>> Create(Superpoder superpoder)
         {
@@ -67,7 +67,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return CreatedAtAction(nameof(Get), new { id = superpoder.Id }, superpoder);
         }
 
-        // PUT: api/superpoderes/{id}
+        // PUT: /api/superpoderes/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Superpoder superpoder)
         {
@@ -97,7 +97,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return NoContent();
         }
 
-        // DELETE: api/superpoderes/{id}
+        // DELETE: /api/superpoderes/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -8,7 +8,7 @@ namespace TesteViceriSeidor.Api.Models
     public class Superpoder
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [MaxLength(50)]
         [Column("Superpoder")]
@@ -25,7 +25,7 @@ namespace TesteViceriSeidor.Api.Models
 
         public Superpoder(string Nome, string Descricao)
         {
-            this.Id = 0;
+            this.Id = null;
             this.Nome = Nome;
             this.Descricao = Descricao;
             this.Herois = new List<Heroi>();

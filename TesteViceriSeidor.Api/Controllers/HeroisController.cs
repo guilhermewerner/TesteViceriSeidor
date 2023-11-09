@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,7 +21,7 @@ namespace TesteViceriSeidor.Api.Controllers
             _context = context;
         }
 
-        // GET: api/herois
+        // GET: /api/herois
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Heroi>>> Get()
         {
@@ -33,7 +33,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return await _context.Herois.ToListAsync();
         }
 
-        // GET: api/herois/{id}
+        // GET: /api/herois/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Heroi>> Get(int id)
         {
@@ -52,7 +52,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return heroi;
         }
 
-        // POST: api/herois
+        // POST: /api/herois
         [HttpPost]
         public async Task<ActionResult<Heroi>> Create(Heroi heroi)
         {
@@ -67,7 +67,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return CreatedAtAction(nameof(Get), new { id = heroi.Id }, heroi);
         }
 
-        // PUT: api/herois/{id}
+        // PUT: /api/herois/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, Heroi heroi)
         {
@@ -97,7 +97,7 @@ namespace TesteViceriSeidor.Api.Controllers
             return NoContent();
         }
 
-        // DELETE: api/herois/{id}
+        // DELETE: /api/herois/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
