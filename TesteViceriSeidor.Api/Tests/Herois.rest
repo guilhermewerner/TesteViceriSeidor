@@ -1,0 +1,18 @@
+###
+
+GET https://localhost:7168/api/herois
+
+###
+
+POST https://localhost:7168/api/herois
+Content-Type: application/json
+
+{
+    "nome": "Natasha Romanoff",
+    "nomeHeroi": "Viúva Negra",
+    "dataNascimento": "1984-11-22T10:30:00.000Z",
+    "altura": 1.68,
+    "peso": 58
+}
+
+###

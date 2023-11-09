@@ -1,0 +1,15 @@
+###
+
+GET https://localhost:7168/api/superpoderes
+
+###
+
+POST https://localhost:7168/api/superpoderes
+Content-Type: application/json
+
+{
+    "nome": "Pirocinese",
+    "descricao": "A habilidade de gerar e controlar o fogo com a mente, podendo criar chamas intensas ou controlar chamas existentes."
+}
+
+###
