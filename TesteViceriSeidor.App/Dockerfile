@@ -1,5 +1,5 @@
 # Imagem base
-FROM node:14 AS build
+FROM node:lts AS build
 WORKDIR /app
 
 # Copiar e instalar as dependências
