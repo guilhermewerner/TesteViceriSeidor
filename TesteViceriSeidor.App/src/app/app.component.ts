@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from './services/api.service';
@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Heroi } from './models/heroi.model';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl, FormArray } from '@angular/forms';
 import { Superpoder } from './models/superpoder.model';
+
 
 @Component({
     selector: 'app-root',
@@ -20,23 +21,15 @@ export class AppComponent implements OnInit {
     heroi: any;
     herois: any[];
     superpoderes: any[];
-    heroiForm: FormGroup;
+    heroiForm!: FormGroup;
     mensagemErro: string;
+
+    modalRef: any;
 
     constructor(private backendApi: ApiService, private modalService: NgbModal, private formBuilder: FormBuilder) {
         this.herois = [];
         this.superpoderes = [];
         this.mensagemErro = "";
-
-        this.heroiForm = this.formBuilder.group({
-            id: [null],
-            nome: [null, Validators.required],
-            nomeHeroi: [null, Validators.required],
-            dataNascimento: [null, Validators.required],
-            altura: [null, Validators.required],
-            peso: [null, Validators.required],
-            superpoderes: this.formBuilder.array([]),
-        });
     }
 
     preencherFormularioComHeroi(heroi: Heroi) {
@@ -49,38 +42,39 @@ export class AppComponent implements OnInit {
             peso: heroi.peso,
         });
 
-        // Preencher os superpoderes individualmente
-        const superpoderesFormArray = this.heroiForm.get('superpoderes') as FormArray;
-
         this.superpoderes.forEach(superpoder => {
-            const temSuperpoder = heroi.superpoderes.some(sp => sp.id === superpoder.id);
+            const controle = this.heroiForm.get(`superpoder${superpoder.id}`);
 
-            // Verifique se o FormControl já existe
-            const superpoderControl = this.getSuperpoderControl(superpoder.id);
-
-            if (superpoderControl) {
-                superpoderControl.patchValue(temSuperpoder);
+            if (!controle) {
+                this.heroiForm.addControl(`superpoder${superpoder.id}`, this.formBuilder.control(false, Validators.required));
             } else {
-                // Adicione um novo FormControl ao FormArray se ainda não existir
-                superpoderesFormArray.push(this.formBuilder.control(temSuperpoder));
+                controle.patchValue(false);
             }
         });
+
+        if (heroi.superpoderes) {
+            heroi.superpoderes.forEach(superpoder => {
+                const controle = this.heroiForm.get(`superpoder${superpoder.id}`);
+
+                if (controle) {
+                    controle.patchValue(true);
+                }
+            });
+        }
     }
 
     onSubmit() {
-        const heroiData: Heroi = this.heroiForm.value;
+        let heroiData: Heroi = this.heroiForm.value;
+        let poderesSelecionados: Superpoder[] = [];
 
-        // Obtenha os superpoderes do formulário
-        const superpoderesFormArray = this.heroiForm.get('superpoderes') as FormArray;
-        const superpoderesSelecionados = this.superpoderes
-            .filter((superpoder, index) => superpoderesFormArray.at(index).value);
-
-        console.log({ superpoderesSelecionados });
-
-        // Adicione os superpoderes selecionados ao herói
-        heroiData.superpoderes = superpoderesSelecionados.map(superpoder => {
-            return superpoder as Superpoder;
+        this.superpoderes.forEach(superpoder => {
+            const controle = this.heroiForm.get(`superpoder${superpoder.id}`);
+            if (controle && controle.value) {
+                poderesSelecionados.push(superpoder);
+            }
         });
+
+        heroiData.superpoderes = poderesSelecionados;
 
         if (heroiData.id) {
             this.backendApi.atualizarHeroi(heroiData).subscribe({
@@ -116,12 +110,12 @@ export class AppComponent implements OnInit {
             this.backendApi.obterHeroi(heroiId).subscribe((heroi) => {
                 this.heroi = heroi;
                 this.preencherFormularioComHeroi(this.heroi);
-                this.modalService.open(content, { centered: true, size: 'lg' });
+                this.modalRef = this.modalService.open(content, { centered: true, size: 'lg' });
             });
         } else {
             this.heroi = new Heroi();
             this.preencherFormularioComHeroi(this.heroi);
-            this.modalService.open(content, { centered: true, size: 'lg' });
+            this.modalRef = this.modalService.open(content, { centered: true, size: 'lg' });
         }
     }
 
@@ -135,24 +129,29 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.heroiForm = this.formBuilder.group({
-            id: [null],
-            nome: [null, Validators.required],
-            nomeHeroi: [null, Validators.required],
-            dataNascimento: [null, Validators.required],
-            altura: [null, Validators.required],
-            peso: [null, Validators.required],
-            superpoderes: this.formBuilder.array([]),
-        });
-
         this.atualizarHerois();
         this.atualizarSuperpoderes();
-        this.inicializarSuperpoderesFormArray();
     }
 
     atualizarSuperpoderes() {
         this.backendApi.obterPoderes().subscribe((superpoderes) => {
             this.superpoderes = superpoderes;
+
+            const poderControls: any = {};
+
+            this.superpoderes.forEach(superpoderes => {
+                poderControls[`superpoder${superpoderes.id}`] = [false, Validators.required];
+            });
+
+            this.heroiForm = this.formBuilder.group({
+                id: [null],
+                nome: [null, Validators.required],
+                nomeHeroi: [null, Validators.required],
+                dataNascimento: [null, Validators.required],
+                altura: [null, Validators.required],
+                peso: [null, Validators.required],
+                ...poderControls
+            });
         });
     }
 
@@ -160,17 +159,5 @@ export class AppComponent implements OnInit {
         this.backendApi.obterHerois().subscribe((herois) => {
             this.herois = herois;
         });
-    }
-
-    inicializarSuperpoderesFormArray() {
-        const superpoderesFormArray = this.heroiForm.get('superpoderes') as FormArray;
-
-        this.superpoderes.forEach(superpoder => {
-            superpoderesFormArray.push(this.formBuilder.control(false));
-        });
-    }
-
-    getSuperpoderControl(superpoderId: number) {
-        return (this.heroiForm.get('superpoderes') as FormGroup).get(superpoderId.toString()) as FormControl;
     }
 }

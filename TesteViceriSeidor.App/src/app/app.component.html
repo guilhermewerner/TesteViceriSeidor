@@ -75,10 +75,45 @@
                 <label for="peso" class="form-label">Peso:</label>
                 <input type="number" class="form-control" id="peso" formControlName="peso" required>
             </div>
-            <div *ngFor="let superpoder of superpoderes" class="form-check">
-                <input type="checkbox" class="form-check-input" [id]="'superpoder' + superpoder.id"
-                    [formControl]="getSuperpoderControl(superpoder.id)" />
-                <label class="form-check-label" [for]="'superpoder' + superpoder.id">{{ superpoder.nome }}</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder1"/>
+                <label class="form-check-label" for="superpoder1" >{{ superpoderes[0].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder2"/>
+                <label class="form-check-label" for="superpoder2" >{{ superpoderes[1].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder3"/>
+                <label class="form-check-label" for="superpoder3" >{{ superpoderes[2].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder4"/>
+                <label class="form-check-label" for="superpoder4" >{{ superpoderes[3].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder5"/>
+                <label class="form-check-label" for="superpoder5" >{{ superpoderes[4].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder6"/>
+                <label class="form-check-label" for="superpoder6" >{{ superpoderes[5].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder7"/>
+                <label class="form-check-label" for="superpoder7" >{{ superpoderes[6].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder8"/>
+                <label class="form-check-label" for="superpoder8" >{{ superpoderes[7].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder9"/>
+                <label class="form-check-label" for="superpoder9" >{{ superpoderes[8].nome }}</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="superpoder10"/>
+                <label class="form-check-label" for="superpoder10" >{{ superpoderes[9].nome }}</label>
             </div>
         </div>
         <div class="modal-footer">
