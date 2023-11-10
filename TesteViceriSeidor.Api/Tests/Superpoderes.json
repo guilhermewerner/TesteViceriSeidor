@@ -1,0 +1,42 @@
+[
+    {
+        "nome": "Pirocinese",
+        "descricao": "A habilidade de gerar e controlar o fogo com a mente, podendo criar chamas intensas ou controlar chamas existentes."
+    },
+    {
+        "nome": "Telecinese",
+        "descricao": "Capacidade de mover objetos com a mente, sem a necessidade de contato físico, utilizando apenas o poder do pensamento."
+    },
+    {
+        "nome": "Invisibilidade",
+        "descricao": "A capacidade de tornar-se invisível aos olhos humanos ou de qualquer forma de detecção visual."
+    },
+    {
+        "nome": "Cura Acelerada",
+        "descricao": "A capacidade de se curar rapidamente de ferimentos e doenças, acelerando o processo de regeneração celular."
+    },
+    {
+        "nome": "Ilusionismo Mental",
+        "descricao": "Habilidade de criar ilusões mentais, enganando os sentidos dos outros e fazendo-os perceberem coisas que não são reais."
+    },
+    {
+        "nome": "Mimetismo Animal",
+        "descricao": "Capacidade de adquirir características físicas e habilidades de animais, podendo se transformar total ou parcialmente em diferentes espécies."
+    },
+    {
+        "nome": "Controle Temporal",
+        "descricao": "A habilidade de manipular o tempo, podendo acelerar, retardar, parar ou até mesmo viajar no tempo."
+    },
+    {
+        "nome": "Eletrocinese",
+        "descricao": "Controle sobre a eletricidade, permitindo gerar, manipular e absorver descargas elétricas."
+    },
+    {
+        "nome": "Telepatia",
+        "descricao": "Capacidade de ler e transmitir pensamentos entre indivíduos sem a necessidade de comunicação verbal."
+    },
+    {
+        "nome": "Transmutação de Matéria",
+        "descricao": "Habilidade de transformar a composição molecular de objetos, convertendo um tipo de matéria em outro."
+    }
+]
