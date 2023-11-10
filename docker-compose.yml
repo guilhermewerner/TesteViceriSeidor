@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: TesteViceriSeidor.Api/Dockerfile
+    ports:
+      - "4222:80"
+  app:
+    build:
+      context: .
+      dockerfile: TesteViceriSeidor.App/Dockerfile
+    ports:
+      - "4224:80"
+    depends_on:
+      - api
