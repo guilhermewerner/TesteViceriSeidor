@@ -22,7 +22,7 @@ A API roda usando https na porta 7168, e a documentação pode ser encontrada ao
 - [x] Disponibilização da documentação da API utilizando o Swagger
 
 ### Documentação com Swagger
-![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/assets/26710260/ef9d9c00-41cb-4293-a311-0a27bec7579a)
+![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/blob/main/Assets/Screenshot_142.png)
 
 ## Banco de Dados
 
@@ -39,13 +39,13 @@ O frontend se encontra na pasta `TesteViceriSeidor.App` do repositório e foi cr
 Por ser minha primeira vez fazendo um projeto Angular do zero (já fiz pequenas manutenções em alguns projetos antes), optei por manter tudo na mesma página e utilizar modais (popups) para os formulários de edição e criação de heróis.
 
 ### Página de listagem
-![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/assets/26710260/a496fe66-4c97-482f-bfc4-0e137f15c42f)
+![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/blob/main/Assets/Screenshot_143.png)
 
 ### Modal de cadastro
-![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/assets/26710260/1a3357c3-ed7e-4ac9-8b91-9d0ebf2b9fd3)
+![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/blob/main/Assets/Screenshot_144.png)
 
 ### Modal de edição
-![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/assets/26710260/95ec5082-535e-4a64-88a2-7cd94dfff91d)
+![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/blob/main/Assets/Screenshot_145.png)
 
 ## Observações
 
