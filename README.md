@@ -59,6 +59,8 @@ Sobre min, eu atualmente estou fazendo faculdade na PUC Minas e estagiando com A
 
 Além disso, eu tenho um projeto pessoal que consiste em um site de indexação e busca de servidores de jogos online, acessível por [esse link](https://www.tribufu.com).
 
+![image](https://github.com/GuilhermeWerner/TesteViceriSeidor/blob/main/Assets/Screenshot_146.png)
+
 O código-fonte é fechado, porem ele foi desenvolvido usando Rust para o backend, React com NextJS para o frontend e o banco de dados é um MariaDB, além de uma camada de cache de leitura com Redis.
 
 Outra coisa muito interessante que passei nesse projeto pessoal foi o login via OAuth, atualmente é possível fazer login no site usando um nome de usuário e senha, além de login via a sua conta Steam com OpenID e do Discord e Google com OAuth2.
