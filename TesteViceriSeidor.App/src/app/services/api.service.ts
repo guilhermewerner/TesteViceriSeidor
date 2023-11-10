@@ -25,6 +25,7 @@ export class ApiService {
     }
 
     atualizarHeroi(heroi: Heroi): Observable<Heroi> {
+        heroi.superpoderes.forEach((superpoder: any) => superpoder.herois = [{ id: heroi.id }]);
         return this.http.put<Heroi>(`${this.apiUrl}/herois/${heroi.id}`, heroi);
     }
 

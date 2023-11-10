@@ -26,7 +26,7 @@ namespace TesteViceriSeidor.Api.Models
 
         public float Peso { get; set; }
 
-        public IEnumerable<Superpoder> Superpoderes { get; set; }
+        public ICollection<Superpoder> Superpoderes { get; set; }
 
         public Heroi() : this("", "")
         {
@@ -36,7 +36,7 @@ namespace TesteViceriSeidor.Api.Models
         {
         }
 
-        public Heroi(string Nome, string NomeHeroi, IEnumerable<Superpoder> Superpoderes)
+        public Heroi(string Nome, string NomeHeroi, ICollection<Superpoder> Superpoderes)
         {
             this.Id = null;
             this.Nome = Nome;

@@ -17,7 +17,7 @@ namespace TesteViceriSeidor.Api.Models
         [MaxLength(250)]
         public string Descricao { get; set; }
 
-        public IEnumerable<Heroi> Herois { get; set; }
+        public ICollection<Heroi> Herois { get; set; }
 
         public Superpoder() : this("", "")
         {

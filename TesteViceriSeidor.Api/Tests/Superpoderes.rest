@@ -8,8 +8,8 @@ POST https://localhost:7168/api/superpoderes
 Content-Type: application/json
 
 {
-    "nome": "Pirocinese",
-    "descricao": "A habilidade de gerar e controlar o fogo com a mente, podendo criar chamas intensas ou controlar chamas existentes."
+    "nome": "Transmutação de Matéria",
+    "descricao": "Habilidade de transformar a composição molecular de objetos, convertendo um tipo de matéria em outro."
 }
 
 ###
